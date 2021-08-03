@@ -16,5 +16,31 @@ namespace Asteroid_Dodge
         {
             InitializeComponent();
         }
+
+        private void MnuStop_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void MnuStop2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void MnuStart_Click_1(object sender, EventArgs e)
+        {
+            panel2.Visible = false;
+
+            Clipboard.SetText(TxtNameCopy.Text);
+            TxtName.Text = Clipboard.GetText();
+        }
+        private void MnuStart_MouseEnter(object sender, EventArgs e)
+        {
+            MnuStart.Image = Properties.Resources.playgame2;
+        }
+
+        private void MnuStart_MouseLeave(object sender, EventArgs e)
+        {
+            MnuStart.Image = Properties.Resources.playgame;
+        }
     }
 }
