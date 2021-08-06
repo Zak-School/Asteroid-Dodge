@@ -1,7 +1,7 @@
 ﻿
 namespace Asteroid_Dodge
 {
-    partial class Form1
+    partial class Asteroid_Dodge
     {
         /// <summary>
         /// Required designer variable.
@@ -58,6 +58,7 @@ namespace Asteroid_Dodge
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(500, 410);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel2
             // 
@@ -68,9 +69,10 @@ namespace Asteroid_Dodge
             this.panel2.Controls.Add(this.TxtNameCopy);
             this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.MnuStop);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(577, 459);
+            this.panel2.Size = new System.Drawing.Size(574, 449);
             this.panel2.TabIndex = 503;
             // 
             // label4
@@ -79,7 +81,7 @@ namespace Asteroid_Dodge
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
             this.label4.Image = global::Asteroid_Dodge.Properties.Resources.bg_name;
-            this.label4.Location = new System.Drawing.Point(141, 277);
+            this.label4.Location = new System.Drawing.Point(141, 285);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(311, 25);
             this.label4.TabIndex = 17;
@@ -104,7 +106,7 @@ namespace Asteroid_Dodge
             this.MnuStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.MnuStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MnuStart.Image = global::Asteroid_Dodge.Properties.Resources.playgame;
-            this.MnuStart.Location = new System.Drawing.Point(228, 108);
+            this.MnuStart.Location = new System.Drawing.Point(228, 115);
             this.MnuStart.Name = "MnuStart";
             this.MnuStart.Size = new System.Drawing.Size(136, 36);
             this.MnuStart.TabIndex = 15;
@@ -116,10 +118,12 @@ namespace Asteroid_Dodge
             // TxtNameCopy
             // 
             this.TxtNameCopy.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtNameCopy.Location = new System.Drawing.Point(228, 340);
+            this.TxtNameCopy.Location = new System.Drawing.Point(228, 336);
+            this.TxtNameCopy.MaxLength = 10;
             this.TxtNameCopy.Name = "TxtNameCopy";
             this.TxtNameCopy.Size = new System.Drawing.Size(145, 20);
             this.TxtNameCopy.TabIndex = 13;
+            this.TxtNameCopy.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pictureBox5
             // 
@@ -167,7 +171,7 @@ namespace Asteroid_Dodge
             this.LblScore.Location = new System.Drawing.Point(376, 6);
             this.LblScore.Name = "LblScore";
             this.LblScore.ReadOnly = true;
-            this.LblScore.Size = new System.Drawing.Size(86, 20);
+            this.LblScore.Size = new System.Drawing.Size(85, 20);
             this.LblScore.TabIndex = 10;
             this.LblScore.Text = "0";
             // 
@@ -185,7 +189,7 @@ namespace Asteroid_Dodge
             this.TxtName.Location = new System.Drawing.Point(44, 7);
             this.TxtName.Name = "TxtName";
             this.TxtName.ReadOnly = true;
-            this.TxtName.Size = new System.Drawing.Size(83, 20);
+            this.TxtName.Size = new System.Drawing.Size(85, 20);
             this.TxtName.TabIndex = 8;
             // 
             // label1
@@ -208,11 +212,13 @@ namespace Asteroid_Dodge
             this.MnuStop2.TabStop = false;
             this.MnuStop2.Click += new System.EventHandler(this.MnuStop2_Click);
             // 
-            // Form1
+            // Asteroid_Dodge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(574, 449);
+            this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.MnuStop2);
             this.Controls.Add(this.label3);
@@ -222,11 +228,13 @@ namespace Asteroid_Dodge
             this.Controls.Add(this.TxtName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Asteroid_Dodge";
+            this.Text = "Asteroid Dodge";
+            this.Load += new System.EventHandler(this.Asteroid_Dodge_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

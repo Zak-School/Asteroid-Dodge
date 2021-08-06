@@ -16,7 +16,7 @@ namespace Asteroid_Dodge
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Asteroid_Dodge());
         }
     }
 }
