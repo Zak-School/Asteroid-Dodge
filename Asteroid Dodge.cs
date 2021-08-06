@@ -14,12 +14,19 @@ namespace Asteroid_Dodge
     {
         Graphics g; //declare a graphics object called g
         // declare space for an array of 7 objects called asteroid 
+        Asteroid[] asteroid = new Asteroid[7];
+        Random yspeed = new Random();
+        Spaceship spaceship = new Spaceship();
 
         public Asteroid_Dodge()
         {
             InitializeComponent();
-            
-
+            for (int i = 0; i < 7; i++)
+            {
+                int x = 10 + (i * 75);
+                asteroid[i] = new Asteroid(x);
+                TxtName.ReadOnly = false;
+            }
         }
 
         private void MnuStop_Click(object sender, EventArgs e)
@@ -52,11 +59,19 @@ namespace Asteroid_Dodge
             TxtNameCopy.SelectionStart = 0;
 
             return /*true*/;
-           }   
+           }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-           
+            //get the graphics used to paint on the panel control
+            g = e.Graphics;
+            //call the Asteroid class's DrawPlanet method to draw the image asteroid1 
+            for (int i = 0; i < 7; i++)
+            {
+                //call the asteroid class's drawasteroid method to draw the images
+                asteroid[i].DrawPlanet(g);
+                spaceship.DrawSpaceship(g);
+            }
         }
    
 
