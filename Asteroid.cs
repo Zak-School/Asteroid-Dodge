@@ -21,11 +21,16 @@ namespace Asteroid_Dodge
             g.DrawImage(asteroidImage, asteroidRec);
         }
 
+        public void MoveAsteroid()
+        {
+            asteroidRec.Location = new Point(x, y);
+        }
+
         //Create a constructor (initialises the values of the fields)
         public Asteroid(int spacing)
         {
             x = spacing;
-            y = -50;
+            y = -76;
             width = 20;
             height = 50;
             //AsteroidImage contains the asteroid.png image

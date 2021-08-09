@@ -29,7 +29,8 @@ namespace Asteroid_Dodge
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.components = new System.ComponentModel.Container();
+            this.PnlGame = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -44,6 +45,7 @@ namespace Asteroid_Dodge
             this.TxtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.MnuStop2 = new System.Windows.Forms.PictureBox();
+            this.TmrAsteriod = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -51,14 +53,14 @@ namespace Asteroid_Dodge
             ((System.ComponentModel.ISupportInitialize)(this.MnuStop2)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // PnlGame
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Location = new System.Drawing.Point(3, 36);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(500, 410);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.PnlGame.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PnlGame.Location = new System.Drawing.Point(3, 36);
+            this.PnlGame.Name = "PnlGame";
+            this.PnlGame.Size = new System.Drawing.Size(500, 410);
+            this.PnlGame.TabIndex = 0;
+            this.PnlGame.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel2
             // 
@@ -212,6 +214,10 @@ namespace Asteroid_Dodge
             this.MnuStop2.TabStop = false;
             this.MnuStop2.Click += new System.EventHandler(this.MnuStop2_Click);
             // 
+            // TmrAsteriod
+            // 
+            this.TmrAsteriod.Tick += new System.EventHandler(this.TmrAsteriod_Tick);
+            // 
             // Asteroid_Dodge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -227,7 +233,7 @@ namespace Asteroid_Dodge
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TxtName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.PnlGame);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.MaximizeBox = false;
@@ -248,7 +254,7 @@ namespace Asteroid_Dodge
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel PnlGame;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LblLives;
         private System.Windows.Forms.TextBox LblScore;
@@ -263,6 +269,7 @@ namespace Asteroid_Dodge
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox MnuStop2;
+        private System.Windows.Forms.Timer TmrAsteriod;
     }
 }
 

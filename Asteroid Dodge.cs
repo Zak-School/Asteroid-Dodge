@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
 
 namespace Asteroid_Dodge
 {
@@ -21,6 +22,7 @@ namespace Asteroid_Dodge
         public Asteroid_Dodge()
         {
             InitializeComponent();
+            typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, PnlGame, new object[] { true });
             for (int i = 0; i < 7; i++)
             {
                 int x = 10 + (i * 75);
@@ -32,10 +34,12 @@ namespace Asteroid_Dodge
         private void MnuStop_Click(object sender, EventArgs e)
         {
             this.Close();
+            TmrAsteriod.Enabled = false;
         }
         private void MnuStop2_Click(object sender, EventArgs e)
         {
             this.Close();
+            TmrAsteriod.Enabled = false;
         }
 
         private void MnuStart_Click_1(object sender, EventArgs e)
@@ -48,6 +52,7 @@ namespace Asteroid_Dodge
             }
 
             panel2.Visible = false;
+            TmrAsteriod.Enabled = true;
 
             // Paste current text in Clipboard into text box.
             TxtNameCopy.SelectionStart = 0;
@@ -59,7 +64,7 @@ namespace Asteroid_Dodge
             TxtNameCopy.SelectionStart = 0;
 
             return /*true*/;
-           }
+        }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -68,12 +73,15 @@ namespace Asteroid_Dodge
             //call the Asteroid class's DrawPlanet method to draw the image asteroid1 
             for (int i = 0; i < 7; i++)
             {
-                //call the asteroid class's drawasteroid method to draw the images
-                asteroid[i].DrawPlanet(g);
+                // generate a random number from 5 to 20 and put it in rndmspeed
+                int rndmspeed = yspeed.Next(5, 25);
                 spaceship.DrawSpaceship(g);
+                asteroid[i].y += rndmspeed;
+                //call the Planet class's drawPlanet method to draw the images
+                asteroid[i].DrawPlanet(g);
             }
         }
-   
+
 
         private void MnuStart_MouseEnter(object sender, EventArgs e)
         {
@@ -85,10 +93,25 @@ namespace Asteroid_Dodge
             MnuStart.Image = Properties.Resources.playgame;
         }
 
+        private void TmrAsteriod_Tick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                asteroid[i].MoveAsteroid();
+                //if a planet reaches the bottom of the Game Area reposition it at the top
+                if (asteroid[i].y >= PnlGame.Height)
+                {
+                    asteroid[i].y = 30;
+                }
+            }
+            PnlGame.Invalidate();//makes the paint event fire to redraw the panel
+        }
+
+
         private void Asteroid_Dodge_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(" Use the left and right arrow keys or A and D to move the spaceship. \n Don't get hit by the planets! \n Every planet that gets past scores a point and collecting a coin gets 5. \n If a planet hits a spaceship a life is lost! \n \n Enter your Name \n Click Start to begin", "Game Instructions");
-            TxtName.Focus();
+            //MessageBox.Show(" Use the left and right arrow keys or A and D to move the spaceship. \n Don't get hit by the planets! \n Every planet that gets past scores a point and collecting a coin gets 5. \n If a planet hits a spaceship a life is lost! \n \n Enter your Name \n Click Start to begin", "Game Instructions");
+            //TxtName.Focus();
         }
     }
 }
