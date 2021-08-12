@@ -15,7 +15,7 @@ namespace Asteroid_Dodge
 
         public Rectangle asteroidRec;//variable for a rectangle to place our image in
         // Methods for the Asteroid class
-        public void DrawPlanet(Graphics g)
+        public void DrawAsteroid(Graphics g)
         {
             asteroidRec = new Rectangle(x, y, width, height);
             g.DrawImage(asteroidImage, asteroidRec);

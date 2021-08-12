@@ -46,6 +46,7 @@ namespace Asteroid_Dodge
             this.label1 = new System.Windows.Forms.Label();
             this.MnuStop2 = new System.Windows.Forms.PictureBox();
             this.TmrAsteriod = new System.Windows.Forms.Timer(this.components);
+            this.TmrSpaceship = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -218,6 +219,11 @@ namespace Asteroid_Dodge
             // 
             this.TmrAsteriod.Tick += new System.EventHandler(this.TmrAsteriod_Tick);
             // 
+            // TmrSpaceship
+            // 
+            this.TmrSpaceship.Interval = 50;
+            this.TmrSpaceship.Tick += new System.EventHandler(this.TmrSpaceship_Tick);
+            // 
             // Asteroid_Dodge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -239,8 +245,11 @@ namespace Asteroid_Dodge
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Asteroid_Dodge";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Asteroid Dodge";
             this.Load += new System.EventHandler(this.Asteroid_Dodge_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Asteroid_Dodge_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Asteroid_Dodge_KeyUp);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -270,6 +279,7 @@ namespace Asteroid_Dodge
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox MnuStop2;
         private System.Windows.Forms.Timer TmrAsteriod;
+        private System.Windows.Forms.Timer TmrSpaceship;
     }
 }
 
