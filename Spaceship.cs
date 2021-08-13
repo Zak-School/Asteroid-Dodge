@@ -38,7 +38,7 @@ namespace Asteroid_Dodge
                 }
                 else
                 {
-                    x += 9;
+                    x += 6;
                     spaceRec.Location = new Point(x, y);
                 }
 
@@ -48,7 +48,7 @@ namespace Asteroid_Dodge
                 if (spaceRec.Location.X < 10) // is spaceship within 10 of left side
                 {
 
-                    x = 10;
+                    x = 6;
                     spaceRec.Location = new Point(x, y);
                 }
                 else

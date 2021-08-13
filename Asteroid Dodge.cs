@@ -57,10 +57,6 @@ namespace Asteroid_Dodge
                 return /*false*/;
             }
 
-            panel2.Visible = false;
-            TmrAsteriod.Enabled = true;
-            TmrSpaceship.Enabled = true;
-
             // Paste current text in Clipboard into text box.
             TxtNameCopy.SelectionStart = 0;
             TxtNameCopy.SelectionLength = TxtNameCopy.TextLength;
@@ -69,6 +65,12 @@ namespace Asteroid_Dodge
             TxtName.SelectionStart = 0;
             TxtName.Paste();
             TxtNameCopy.SelectionStart = 0;
+
+            panel2.Visible = false;
+            TmrAsteriod.Enabled = true;
+            TmrSpaceship.Enabled = true;
+            TmrCoin.Enabled = true;
+
 
             return /*true*/;
         }
@@ -119,7 +121,7 @@ namespace Asteroid_Dodge
                 if (spaceship.spaceRec.IntersectsWith(asteroid[i].asteroidRec))
                 {
                     //reset asteroid[i] back to top of panel
-                    asteroid[i].y = 00; // set  y value of asteroidRec
+                    asteroid[i].y = 0; // set  y value of asteroidRec
                     lives -= 1;// lose a life
                     LblLives.Text = lives.ToString();// display number of lives
                     CheckLives();
@@ -140,14 +142,21 @@ namespace Asteroid_Dodge
             for (int i = 0; i < 5; i++)
             {
                 coin[i].MoveCoin();
-                //if a planet reaches the bottom of the Game Area reposition it at the top
+                if (spaceship.spaceRec.IntersectsWith(coin[i].coinRec))
+                {
+                    //reset coin[i] back to top of panel
+                    coin[i].y = 0; // set  y value of coinRec
+                    score += 5;// lose a life
+                    TxtScore.Text = score.ToString();// display score
+                    CheckLives();
+                }
+                //if a coin reaches the bottom of the Game Area reposition it at the top
                 if (coin[i].y >= PnlGame.Height)
                 {
                     coin[i].y = 0;
                 }
-                PnlGame.Invalidate();//makes the paint event fire to redraw the panel
             }
-        
+            PnlGame.Invalidate();//makes the paint event fire to redraw the panel
         }
 
 

@@ -74,8 +74,7 @@ namespace Asteroid_Dodge
             this.panel2.Controls.Add(this.TxtNameCopy);
             this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.MnuStop);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Location = new System.Drawing.Point(6, 1);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(574, 445);
             this.panel2.TabIndex = 503;
