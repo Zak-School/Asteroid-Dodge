@@ -48,6 +48,7 @@ namespace Asteroid_Dodge
             this.TmrSpaceship = new System.Windows.Forms.Timer(this.components);
             this.TmrCoin = new System.Windows.Forms.Timer(this.components);
             this.MnuStop2 = new System.Windows.Forms.PictureBox();
+            this.TmrMissile = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -74,7 +75,8 @@ namespace Asteroid_Dodge
             this.panel2.Controls.Add(this.TxtNameCopy);
             this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.MnuStop);
-            this.panel2.Location = new System.Drawing.Point(6, 1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(574, 445);
             this.panel2.TabIndex = 503;
@@ -229,6 +231,10 @@ namespace Asteroid_Dodge
             this.MnuStop2.TabStop = false;
             this.MnuStop2.Click += new System.EventHandler(this.MnuStop2_Click);
             // 
+            // TmrMissile
+            // 
+            this.TmrMissile.Tick += new System.EventHandler(this.TmrMissile_Tick);
+            // 
             // Asteroid_Dodge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -285,6 +291,7 @@ namespace Asteroid_Dodge
         private System.Windows.Forms.Timer TmrAsteriod;
         private System.Windows.Forms.Timer TmrSpaceship;
         private System.Windows.Forms.Timer TmrCoin;
+        private System.Windows.Forms.Timer TmrMissile;
     }
 }
 

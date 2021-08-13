@@ -19,8 +19,7 @@ namespace Asteroid_Dodge
         //Declare space for an array of 6 objects called coins 
         //Create a Random object called randomizer to generate random numbers.
         //Declare a list  missiles from the missile class
-        
-        
+        List<Missile> missiles = new List<Missile>();
         Asteroid[] asteroid = new Asteroid[7];
         Coin[] coin = new Coin[6];
         Random yspeed = new Random();
@@ -70,6 +69,7 @@ namespace Asteroid_Dodge
             TmrAsteriod.Enabled = true;
             TmrSpaceship.Enabled = true;
             TmrCoin.Enabled = true;
+            TmrMissile.Enabled = true;
 
 
             return /*true*/;
@@ -97,6 +97,10 @@ namespace Asteroid_Dodge
                 //call the coins class's drawCoin method to draw the images
                 coin[i].DrawCoin(g);
             }
+            foreach (Missile m in missiles)
+            {
+                m.draw(g);
+            }
         }
 
         private void TmrSpaceship_Tick(object sender, EventArgs e)
@@ -110,6 +114,30 @@ namespace Asteroid_Dodge
             {
                 move = "left";
                 spaceship.MoveSpaceship(move);
+            }
+        }
+        private void TmrMissile_Tick(object sender, EventArgs e)
+        {
+            if (spacebar) // if spacebar key pressed
+            {
+                missiles.Add(new Missile(spaceship.spaceRec));
+                {
+                    foreach (Asteroid a in asteroid)
+                    {
+
+                        foreach (Missile m in missiles)
+                        {
+                            if (a.asteroidRec.IntersectsWith(m.missileRec))
+                            {
+
+                                missiles.Remove(m);
+                                break;
+                            }
+                        }
+
+                    }
+                    this.Invalidate();
+                }
             }
         }
 
@@ -167,6 +195,7 @@ namespace Asteroid_Dodge
                 TmrAsteriod.Enabled = false;
                 TmrSpaceship.Enabled = false;
                 TmrCoin.Enabled = false;
+                TmrMissile.Enabled = false;
 
                 MessageBox.Show("Game Over");
                 this.Close();
@@ -207,6 +236,7 @@ namespace Asteroid_Dodge
             TmrAsteriod.Enabled = false;
             TmrSpaceship.Enabled = false;
             TmrCoin.Enabled = false;
+            TmrMissile.Enabled = false;
 
 
         }
@@ -217,6 +247,7 @@ namespace Asteroid_Dodge
             TmrAsteriod.Enabled = false;
             TmrSpaceship.Enabled = false;
             TmrCoin.Enabled = false;
+            TmrMissile.Enabled = false;
 
 
         }

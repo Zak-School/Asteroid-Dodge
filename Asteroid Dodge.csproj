@@ -54,6 +54,7 @@
       <DependentUpon>Asteroid Dodge.cs</DependentUpon>
     </Compile>
     <Compile Include="Coin.cs" />
+    <Compile Include="Missile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Spaceship.cs" />
