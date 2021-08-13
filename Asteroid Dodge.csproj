@@ -53,6 +53,7 @@
     <Compile Include="Asteroid Dodge.Designer.cs">
       <DependentUpon>Asteroid Dodge.cs</DependentUpon>
     </Compile>
+    <Compile Include="Coin.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Spaceship.cs" />
@@ -108,6 +109,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Spaceship.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\missile_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spacecraft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9616997915_3ceb277ca1_b.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

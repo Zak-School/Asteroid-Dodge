@@ -127,7 +127,7 @@
   <data name="Asteroid_Dodge_White" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Asteroid Dodge White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bg_name" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bg-name.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Coin" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -136,13 +136,31 @@
   <data name="exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Missile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\missile_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="playgame" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playgame.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="playgame2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playgame2.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Spaceship" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Ship" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spaceship.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spacecraft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spacecraft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Star Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\9616997915_3ceb277ca1_b.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

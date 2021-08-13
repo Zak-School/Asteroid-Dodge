@@ -38,7 +38,7 @@ namespace Asteroid_Dodge
                 }
                 else
                 {
-                    x += 5;
+                    x += 9;
                     spaceRec.Location = new Point(x, y);
                 }
 
@@ -53,7 +53,7 @@ namespace Asteroid_Dodge
                 }
                 else
                 {
-                    x -= 5;
+                    x -= 9;
                     spaceRec.Location = new Point(x, y);
                 }
 
@@ -66,7 +66,7 @@ namespace Asteroid_Dodge
             y = 360;
             width = 40;
             height = 40;
-            spaceship = Properties.Resources.Spaceship;
+            spaceship = Properties.Resources.spacecraft;
             spaceRec = new Rectangle(x, y, width, height);
         }
     }

@@ -40,13 +40,14 @@ namespace Asteroid_Dodge
             this.MnuStop = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.LblLives = new System.Windows.Forms.Label();
-            this.LblScore = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.TxtScore = new System.Windows.Forms.TextBox();
+            this.lblScore = new System.Windows.Forms.Label();
             this.TxtName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.MnuStop2 = new System.Windows.Forms.PictureBox();
+            this.lblName = new System.Windows.Forms.Label();
             this.TmrAsteriod = new System.Windows.Forms.Timer(this.components);
             this.TmrSpaceship = new System.Windows.Forms.Timer(this.components);
+            this.TmrCoin = new System.Windows.Forms.Timer(this.components);
+            this.MnuStop2 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -56,6 +57,7 @@ namespace Asteroid_Dodge
             // 
             // PnlGame
             // 
+            this.PnlGame.BackgroundImage = global::Asteroid_Dodge.Properties.Resources.Star_Background;
             this.PnlGame.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PnlGame.Location = new System.Drawing.Point(3, 36);
             this.PnlGame.Name = "PnlGame";
@@ -75,7 +77,7 @@ namespace Asteroid_Dodge
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(574, 449);
+            this.panel2.Size = new System.Drawing.Size(574, 445);
             this.panel2.TabIndex = 503;
             // 
             // label4
@@ -83,7 +85,7 @@ namespace Asteroid_Dodge
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Image = global::Asteroid_Dodge.Properties.Resources.bg_name;
+            this.label4.Image = global::Asteroid_Dodge.Properties.Resources.Background;
             this.label4.Location = new System.Drawing.Point(141, 285);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(311, 25);
@@ -131,8 +133,8 @@ namespace Asteroid_Dodge
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.ErrorImage = global::Asteroid_Dodge.Properties.Resources.bg_name;
-            this.pictureBox5.Image = global::Asteroid_Dodge.Properties.Resources.bg_name;
+            this.pictureBox5.ErrorImage = global::Asteroid_Dodge.Properties.Resources.Background;
+            this.pictureBox5.Image = global::Asteroid_Dodge.Properties.Resources.Background;
             this.pictureBox5.Location = new System.Drawing.Point(121, 238);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(348, 171);
@@ -169,23 +171,23 @@ namespace Asteroid_Dodge
             this.LblLives.TabIndex = 11;
             this.LblLives.Text = "5";
             // 
-            // LblScore
+            // TxtScore
             // 
-            this.LblScore.Location = new System.Drawing.Point(376, 6);
-            this.LblScore.Name = "LblScore";
-            this.LblScore.ReadOnly = true;
-            this.LblScore.Size = new System.Drawing.Size(85, 20);
-            this.LblScore.TabIndex = 10;
-            this.LblScore.Text = "0";
+            this.TxtScore.Location = new System.Drawing.Point(376, 6);
+            this.TxtScore.Name = "TxtScore";
+            this.TxtScore.ReadOnly = true;
+            this.TxtScore.Size = new System.Drawing.Size(85, 20);
+            this.TxtScore.TabIndex = 10;
+            this.TxtScore.Text = "0";
             // 
-            // label2
+            // lblScore
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(467, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Score";
+            this.lblScore.AutoSize = true;
+            this.lblScore.Location = new System.Drawing.Point(467, 10);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(35, 13);
+            this.lblScore.TabIndex = 9;
+            this.lblScore.Text = "Score";
             // 
             // TxtName
             // 
@@ -195,14 +197,27 @@ namespace Asteroid_Dodge
             this.TxtName.Size = new System.Drawing.Size(85, 20);
             this.TxtName.TabIndex = 8;
             // 
-            // label1
+            // lblName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Name";
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(3, 11);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(35, 13);
+            this.lblName.TabIndex = 7;
+            this.lblName.Text = "Name";
+            // 
+            // TmrAsteriod
+            // 
+            this.TmrAsteriod.Tick += new System.EventHandler(this.TmrAsteriod_Tick);
+            // 
+            // TmrSpaceship
+            // 
+            this.TmrSpaceship.Interval = 1;
+            this.TmrSpaceship.Tick += new System.EventHandler(this.TmrSpaceship_Tick);
+            // 
+            // TmrCoin
+            // 
+            this.TmrCoin.Tick += new System.EventHandler(this.TmrCoin_Tick);
             // 
             // MnuStop2
             // 
@@ -215,32 +230,22 @@ namespace Asteroid_Dodge
             this.MnuStop2.TabStop = false;
             this.MnuStop2.Click += new System.EventHandler(this.MnuStop2_Click);
             // 
-            // TmrAsteriod
-            // 
-            this.TmrAsteriod.Tick += new System.EventHandler(this.TmrAsteriod_Tick);
-            // 
-            // TmrSpaceship
-            // 
-            this.TmrSpaceship.Interval = 50;
-            this.TmrSpaceship.Tick += new System.EventHandler(this.TmrSpaceship_Tick);
-            // 
             // Asteroid_Dodge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(574, 449);
+            this.ClientSize = new System.Drawing.Size(574, 445);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.MnuStop2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.LblLives);
-            this.Controls.Add(this.LblScore);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.TxtScore);
+            this.Controls.Add(this.lblScore);
             this.Controls.Add(this.TxtName);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblName);
             this.Controls.Add(this.PnlGame);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -266,10 +271,10 @@ namespace Asteroid_Dodge
         private System.Windows.Forms.Panel PnlGame;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LblLives;
-        private System.Windows.Forms.TextBox LblScore;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox TxtScore;
+        private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.TextBox TxtName;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox MnuStop;
@@ -280,6 +285,7 @@ namespace Asteroid_Dodge
         private System.Windows.Forms.PictureBox MnuStop2;
         private System.Windows.Forms.Timer TmrAsteriod;
         private System.Windows.Forms.Timer TmrSpaceship;
+        private System.Windows.Forms.Timer TmrCoin;
     }
 }
 
